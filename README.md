@@ -5,6 +5,26 @@ Desenvolver e testar habilidades em
 Linux, AWS e automação de processos 
 através da configuração de um ambiente 
 de servidor web monitorado. 
+# Tecnologias Utilizadas
+
+## 📌 Linguagem de Programação
+- **Python** – Utilizado para desenvolver o script de monitoramento.
+
+## 📌 Bibliotecas Python
+- **Requests** – Para fazer requisições HTTP e verificar o status do site.
+- **Logging** – Para registrar logs das verificações do site.
+
+## 📌 Notificações
+- **Discord Webhook** – API utilizada para enviar alertas sobre o status do site.
+
+## 📌 Automação de Tarefas
+- **Crontab (Linux)** – Agendador de tarefas para executar o script periodicamente.
+
+## 📌 Infraestrutura
+- **Ubuntu (Linux)** – Sistema operacional utilizado no servidor.
+- **Nginx** – Servidor web para hospedar o site monitorado.
+- **AWS EC2** – Serviço de computação na nuvem para hospedar o site e rodar o script.
+- **VPC (AWS)** – Rede virtual privada para isolar e gerenciar a infraestrutura do servidor.
 
 ---
 ## 🔹 Tela Inicial da AWS  
@@ -28,11 +48,11 @@ Ao acessar o **Console da AWS**, a primeira tela exibida é o **Painel de Gerenc
 
 Ao acessar sua conta na **AWS**, esta é a interface inicial exibida:  
 
-![Tela Inicial da AWS](inicialAWS.png)  
+![Image](https://github.com/user-attachments/assets/c72a8abb-1078-46b3-a6af-3b33953e2b01) 
  
 A **barra de pesquisa** permite acessar rapidamente os serviços necessários para a criação do nosso projeto. Basta digitar **"VPC"** ou **"EC2"** para ser direcionado diretamente à área de configuração desses recursos, iniciando assim o processo de implantação.  
 
-![alt text](procurando.png)
+![Image](https://github.com/user-attachments/assets/72162e20-afef-48a8-9395-8a4fae4a197c)
 
 
 ## 1️⃣ Criando uma VPC na AWS
@@ -47,7 +67,7 @@ A **VPC (Virtual Private Cloud)** é uma rede virtual na AWS que permite isolar 
    - Clique em **Criar VPC** e escolha um nome.
    - Escolha um **IPv4 CIDR Block** (exemplo: `10.0.0.0/16`).
 
-![alt text](vpc.png)
+![Image](https://github.com/user-attachments/assets/5144b4ed-a137-46af-9b79-ce4a5829c87f)
 
 3. **Criar Sub-redes**  
    - **Duas sub-redes públicas** (para acesso externo).  
@@ -55,12 +75,13 @@ A **VPC (Virtual Private Cloud)** é uma rede virtual na AWS que permite isolar 
    - **Duas sub-redes privadas** (para futuras expansões).  
      - Exemplo: `10.0.3.0/24` e `10.0.4.0/24`  
 
-![alt text](subredes.png)
+![Image](https://github.com/user-attachments/assets/5fa0d58f-182e-4691-97da-c918a331b0a8)
+
 4. **Criar e anexar um Internet Gateway**  
    - Vá até **Internet Gateways** → **Criar Internet Gateway**.  
    - Após criar, **anexe à VPC** criada. 
 
-![alt text](image.png)
+![Image](https://github.com/user-attachments/assets/9ca916f3-838a-403b-b521-3873ddf9a6a9)
 
 5. **Criar Tabela de Rotas**  
    - Modifique a tabela de rotas das sub-redes públicas para permitir tráfego externo.  
@@ -68,7 +89,7 @@ A **VPC (Virtual Private Cloud)** é uma rede virtual na AWS que permite isolar 
     - Destino: `0.0.0.0/0`  
     - Alvo: **Internet Gateway** criado.
 
-  ![alt text](rotas.png)
+![Image](https://github.com/user-attachments/assets/eedd4198-c9cb-4de9-97d7-e5a61455c1dd)
 ---
 
 ## 2️⃣ Criando uma Instância EC2
@@ -84,7 +105,7 @@ A **EC2 (Elastic Compute Cloud)** é um servidor virtual na nuvem.
    - Escolha um sistema operacional Linux, como:  
 **Ubuntu**, **Debian** ou **Amazon Linux**. ( a escolha para o projeto foi **Ubuntu** )
 
-    ![alt text](ami.png)
+    ![Image](https://github.com/user-attachments/assets/fbb681bc-78cf-459e-bc26-7d0bd538a458)
 
 3. **Configurar Rede**  
    - Escolha a **VPC** criada anteriormente.  
@@ -97,7 +118,8 @@ A **EC2 (Elastic Compute Cloud)** é um servidor virtual na nuvem.
 
 5. **Escolha o tipo de instância**  
    - Para testes, selecione uma opção gratuita, como **t2.micro**.
-![alt text](t2micro.png)
+   - 
+![Image](https://github.com/user-attachments/assets/59ef57c8-5117-4492-8e9e-32f56ed91fdb)
 
 6. **Criar e associar um IP público**  
    - Em **Elastic IPs**, aloque um IP e associe à instância EC2.
@@ -121,7 +143,7 @@ Após iniciar a instância, você pode acessá-la pelo terminal.
    ```
 
 ### 🔹 Agora estamos dentros da nossa EC2
-![alt text](dentroEC2.png)
+![Image](https://github.com/user-attachments/assets/fd75df3d-b997-40e9-a8fb-d15c91ddb6f8)
 ---
 ### 💡 Dica  
 
@@ -131,7 +153,7 @@ Uma dica é sempre buscar as últimas atualizações e comandos recomendados ao 
 sudo apt update && sudo apt upgrade -y
 ```
 
-![alt text](upgrade.png)
+![Image](https://github.com/user-attachments/assets/409f8ada-f376-443a-82dd-bc8ddf494842)
 
 ## 4️⃣ Acesso e Instalação do Nginx via SSH  
 
@@ -144,7 +166,8 @@ Atualize os pacotes e instale o Nginx com o seguinte comando:
 ```bash
 sudo apt update && sudo apt install nginx -y
 ```
-![alt text](instalarNginx.png)
+![Image](https://github.com/user-attachments/assets/e6227726-d5a0-4657-80fb-560a8164f0e5)
+
 📌 Verificação do Serviço
 Após a instalação, verifique se o Nginx está rodando:
 
@@ -152,7 +175,7 @@ Após a instalação, verifique se o Nginx está rodando:
 ```bash
 sudo systemctl status nginx
 ```
-![alt text](nginxRodando.png)
+![Image](https://github.com/user-attachments/assets/ddc8728c-d7d1-4037-a5b1-5aebcb678c5c)
 
 Caso o serviço não esteja ativo, inicie-o com:
 
@@ -166,9 +189,12 @@ Para garantir que o Nginx inicie automaticamente ao ligar o servidor, utilize:
 ```bash
 sudo systemctl enable nginx
 ```
-![alt text](nginxAutomatico.png)
----
+![Image](https://github.com/user-attachments/assets/3db2523e-0eaa-4183-98dd-6d4a8771a9fb)
 
+## Essa incialmente será a interface que o site vai apresentar ao acessar pelo navegador:
+
+![Image](https://github.com/user-attachments/assets/af787c1b-65e1-4f33-8e3f-d7a62792f7f2)
+---
 ## 5️⃣ Como Editar e Estilizar o HTML do Seu Site no Nginx
 Agora podemos editar o arquivo HTML do site, que está sendo servido pelo Nginx, fazendo uma estilização básica.
 
@@ -196,26 +222,47 @@ Dentro do arquivo `index.html`, você pode adicionar ou modificar o código HTML
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Space</title>
+    <meta name="description" content="Servidor web na AWS com Nginx.">
+    <meta name="keywords" content="AWS, Nginx, EC2">
+    <title>Servidor Web AWS</title>
     <style>
-        body {
-            background-color: #f4f4f9;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        p {
-            font-size: 18px;
-            color: #34495e;
-        }
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
+        h1, h2 { color: #333; }
+        a { color: #007BFF; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        section { background: #fff; padding: 15px; margin-bottom: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        img { max-width: 100%; border-radius: 5px; }
     </style>
 </head>
 <body>
-    <h1>Bem-vindo ao Meu Site!</h1>
-    <p>Este é um exemplo de site básico configurado com o Nginx.</p>
+    <h1>Servidor Web na AWS com Nginx</h1>
+    <p>Projeto com Nginx, EC2.</p>
+
+    <section>
+        <h2>Sobre</h2>
+        <p>Servidor web na AWS com Nginx e monitoramento.</p>
+    </section>
+
+    <section>
+        <h2>Funcionalidades</h2>
+        <ul>
+            <li>Hospedagem de sites</li>
+            <li>Monitoramento em tempo real</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Os primeiros Passos:</h2>
+        <ol>
+            <li>Configure AWS</li>
+            <li>Inicie EC2 e Nginx</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Contato</h2>
+        <p>Email: <a href="mailto:debora.emaildecontato.com.br">debora.emaildecontato.com.br</a></p>
+    </section>
 </body>
 </html>
 ```
@@ -228,6 +275,10 @@ Após editar o arquivo `index.html`, siga os passos abaixo para salvar:
 2. Quando solicitado, pressione **`Y`** para confirmar as alterações.
 3. Pressione **`Enter`** para salvar o arquivo.
 
+
+### Com as alteraçãoes realizadas no arquivo **`index.html`** do site como no exemplo acima, eu gerei essa nova interface:
+
+![Image](https://github.com/user-attachments/assets/1d66a9fe-a048-4424-8383-7516bdf6f5f8)
 ---
 
 ## 6️⃣ Monitoramento de Site com Python e Discord Webhook
@@ -243,7 +294,7 @@ Agora, crie o arquivo `monitoramento.py`:
 touch monitoramento.py
 ```
 
-## Passo 2: Substituir o Código
+## Passo 2: Criação do Script com o Código (meu exemplo com python)
 Construa um codigo que atenda as necessidades do seu monitoramento, no meu caso utilizei **`python`**, mas pode ser feito em **`bash`** também, logo depois cole código como no exemplo utilizado abaixo:
 
 ```python
@@ -355,7 +406,7 @@ sudo systemctl stop nginx
 ```
 O Discord deve receber um alerta 🚨 "O site caiu!"
 
-![alt text](alertaCaiu-1.png)
+![Image](https://github.com/user-attachments/assets/3873c0d4-6f66-4517-9014-91573b12d1a2)
 
 Ligue o Nginx novamente:
 ```bash
@@ -363,40 +414,17 @@ sudo systemctl start nginx
 ```
 O Discord deve receber ✅ "O site voltou ao ar!"
 
-![alt text](alertaVoltou-1.png)
+![Image](https://github.com/user-attachments/assets/ccccfae0-756b-4294-bec7-deec219e20cd)
 
 Para conferir os registro de Log:
 
 ````bash
 cat /var/log/monitoramento.log
 `````
-![alt text](registrosLog.png)
+![Image](https://github.com/user-attachments/assets/cb48075a-0199-4335-ba00-2eb038615dec)
 
-# Tecnologias Utilizadas
-
-## 📌 Linguagem de Programação
-- **Python** – Utilizado para desenvolver o script de monitoramento.
-
-## 📌 Bibliotecas Python
-- **Requests** – Para fazer requisições HTTP e verificar o status do site.
-- **Logging** – Para registrar logs das verificações do site.
-
-## 📌 Notificações
-- **Discord Webhook** – API utilizada para enviar alertas sobre o status do site.
-
-## 📌 Automação de Tarefas
-- **Crontab (Linux)** – Agendador de tarefas para executar o script periodicamente.
-
-## 📌 Infraestrutura
-- **Ubuntu (Linux)** – Sistema operacional utilizado no servidor.
-- **Nginx** – Servidor web para hospedar o site monitorado.
-- **AWS EC2** – Serviço de computação na nuvem para hospedar o site e rodar o script.
-- **VPC (AWS)** – Rede virtual privada para isolar e gerenciar a infraestrutura do servidor.
-
----
-🚀 *Esse conjunto de tecnologias permite um monitoramento eficiente e automatizado do site, garantindo notificações rápidas no Discord em caso de falhas.*  
 
 ---
 ## ✅ Conclusão
-Este documento fornece um teste de conhecimentos basicos como forma de  criar um passo a passo que te possibilite configurar uma **VPC**, lançar uma **instância EC2**, instalar **Nginx**, personalizar um site e automatizar tarefas criando alertas vinculadas a uma API no discord com o servidor. 🚀
+Este documento fornece um teste de conhecimentos basicos como forma de  criar um passo a passo que te possibilite configurar uma **VPC**, lançar uma **instância EC2**, instalar **Nginx**, personalizar um site e automatizar tarefas criando alertas vinculadas a uma API garantindo notificações rápidas no Discord em caso de falhas. 🚀
 #
