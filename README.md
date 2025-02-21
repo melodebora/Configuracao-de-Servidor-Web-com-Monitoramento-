@@ -5,22 +5,22 @@ Desenvolver e testar habilidades em
 Linux, AWS e automação de processos 
 através da configuração de um ambiente 
 de servidor web monitorado. 
-# Tecnologias Utilizadas
+## 📌 Tecnologias Utilizadas
 
-## 📌 Linguagem de Programação
+##  Linguagem de Programação
 - **Python** – Utilizado para desenvolver o script de monitoramento.
 
-## 📌 Bibliotecas Python
+##  Bibliotecas Python
 - **Requests** – Para fazer requisições HTTP e verificar o status do site.
 - **Logging** – Para registrar logs das verificações do site.
 
-## 📌 Notificações
+## Notificações
 - **Discord Webhook** – API utilizada para enviar alertas sobre o status do site.
 
-## 📌 Automação de Tarefas
+## Automação de Tarefas
 - **Crontab (Linux)** – Agendador de tarefas para executar o script periodicamente.
 
-## 📌 Infraestrutura
+## Infraestrutura
 - **Ubuntu (Linux)** – Sistema operacional utilizado no servidor.
 - **Nginx** – Servidor web para hospedar o site monitorado.
 - **AWS EC2** – Serviço de computação na nuvem para hospedar o site e rodar o script.
