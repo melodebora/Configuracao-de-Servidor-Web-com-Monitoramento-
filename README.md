@@ -399,6 +399,4 @@ cat /var/log/monitoramento.log
 ---
 ## ✅ Conclusão
 Este documento fornece um teste de conhecimentos basicos como forma de  criar um passo a passo que te possibilite configurar uma **VPC**, lançar uma **instância EC2**, instalar **Nginx**, personalizar um site e automatizar tarefas criando alertas vinculadas a uma API no discord com o servidor. 🚀
-#   C o n f i g u r a c a o - d e - S e r v i d o r - W e b - c o m - M o n i t o r a m e n t o - 
- 
- 
+#
