@@ -1,30 +1,25 @@
-# Configuração de Servidor Web com Monitoramento 
+# 🔹Configuração de Servidor Web com Monitoramento
 
- ### Objetivo deste Projeto: 
-Desenvolver e testar habilidades em 
-Linux, AWS e automação de processos 
-através da configuração de um ambiente 
-de servidor web monitorado. 
-## 📌 Tecnologias Utilizadas
+### Objetivo: 
+Desenvolver habilidades em Linux, AWS e automação de processos para configurar um ambiente de servidor web monitorado.
 
-##  Linguagem de Programação
-- **Python** – Utilizado para desenvolver o script de monitoramento.
+### 📌 Tecnologias
 
-##  Bibliotecas Python
-- **Requests** – Para fazer requisições HTTP e verificar o status do site.
-- **Logging** – Para registrar logs das verificações do site.
+- **Python** – Linguagem usada para criar o script de monitoramento.
+- **Requests** – Biblioteca para fazer requisições HTTP e verificar o status do site.
+- **Logging** – Utilizada para registrar logs das verificações do site.
+- **Discord Webhook** – Usada para enviar alertas de status do site.
+- **Crontab (Linux)** – Ferramenta de agendamento de tarefas para execução periódica do script.
+- **SSH** – Protocolo para acesso remoto ao servidor e configurações.
+- **IA (Blackbox, ChatGPT, Claude)** – Ferramentas de IA para consultas e automação de processos.
 
-## Notificações
-- **Discord Webhook** – API utilizada para enviar alertas sobre o status do site.
+### 📌  Infraestrutura
 
-## Automação de Tarefas
-- **Crontab (Linux)** – Agendador de tarefas para executar o script periodicamente.
-
-## Infraestrutura
 - **Ubuntu (Linux)** – Sistema operacional utilizado no servidor.
 - **Nginx** – Servidor web para hospedar o site monitorado.
-- **AWS EC2** – Serviço de computação na nuvem para hospedar o site e rodar o script.
-- **VPC (AWS)** – Rede virtual privada para isolar e gerenciar a infraestrutura do servidor.
+- **AWS EC2** – Plataforma de computação em nuvem para hospedagem do site e execução do script.
+- **VPC (AWS)** – Rede privada virtual para isolar a infraestrutura do servidor.
+
 
 ---
 ## 🔹 Tela Inicial da AWS  
@@ -118,7 +113,7 @@ A **EC2 (Elastic Compute Cloud)** é um servidor virtual na nuvem.
 
 5. **Escolha o tipo de instância**  
    - Para testes, selecione uma opção gratuita, como **t2.micro**.
-   - 
+    
 ![Image](https://github.com/user-attachments/assets/59ef57c8-5117-4492-8e9e-32f56ed91fdb)
 
 6. **Criar e associar um IP público**  
