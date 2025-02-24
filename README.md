@@ -72,20 +72,34 @@ A **VPC (Virtual Private Cloud)** é uma rede virtual na AWS que permite isolar 
 
 ![Image](https://github.com/user-attachments/assets/5fa0d58f-182e-4691-97da-c918a331b0a8)
 
-4. **Criar e anexar um Internet Gateway**  
-   - Vá até **Internet Gateways** → **Criar Internet Gateway**.  
-   - Após criar, **anexe à VPC** criada. 
 
-![Image](https://github.com/user-attachments/assets/9ca916f3-838a-403b-b521-3873ddf9a6a9)
-
-5. **Criar Tabela de Rotas**  
-   - Modifique a tabela de rotas das sub-redes públicas para permitir tráfego externo.  
-   - Adicione uma regra:  
-    - Destino: `0.0.0.0/0`  
-    - Alvo: **Internet Gateway** criado.
-
-![Image](https://github.com/user-attachments/assets/eedd4198-c9cb-4de9-97d7-e5a61455c1dd)
 ---
+
+## 2️⃣ Criando um Grupo de Segurança na AWS EC2 
+
+
+### 📌 Passos:
+
+1. **Acesse a AWS Console** e vá para o serviço **EC2**.
+2. No menu lateral, clique em **Security Groups** (Grupos de Segurança).
+3. Clique em **Create Security Group** (Criar Grupo de Segurança).
+4. Preencha os campos:
+   - **Name**: Nome do grupo de segurança (exemplo: `meu-grupo-seguranca`).
+   - **Description**: Uma descrição do grupo.
+    ![Image](https://github.com/user-attachments/assets/c5e29afb-c56b-4009-8910-d5d321af62b3)
+   - **VPC**: Escolha a VPC onde ele será vinculado(neste caso a que criamos anteriormente).
+  ![Image](https://github.com/user-attachments/assets/6a97bab7-6953-42fd-a8d5-b7549ec8c8be)
+     
+5. **Adicione regras de entrada (Inbound Rules)**:
+   - Clique em **Add Rule**.
+
+     ![Image](https://github.com/user-attachments/assets/91cea99d-1865-4589-a198-2f96588865c2)
+   - Escolha um protocolo, porta e origem (por exemplo, **SSH (porta 22, IP específico)**).
+6. **Adicione regras de saída (Outbound Rules)** (por padrão, todas são liberadas).
+7. Clique em **Create Security Group**.
+
+
+
 
 ## 2️⃣ Criando uma Instância EC2
 
@@ -109,7 +123,9 @@ A **EC2 (Elastic Compute Cloud)** é um servidor virtual na nuvem.
 4. **Configurar Segurança**  
    - Crie um **Security Group** permitindo:  
      - **HTTP (porta 80)** → Para acesso ao servidor via navegador.  
-     - **SSH (porta 22)** → Para conexões remotas (opcional).  
+     - **SSH (porta 22)** → Para conexões remotas (opcional).
+     - Na situação atual já foi realizada a criação do nosso security group, só precisamos vincular agora.
+ ![Image](https://github.com/user-attachments/assets/c437eebf-21ae-46fd-9664-a74cafb73fbb)
 
 5. **Escolha o tipo de instância**  
    - Para testes, selecione uma opção gratuita, como **t2.micro**.
